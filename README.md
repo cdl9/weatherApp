@@ -4,7 +4,7 @@ An interactive weather dashboard that allows users to search for cities and view
 The application integrates live weather data, dynamic charts, and an interactive map to create a modern and responsive user experience.
 
 🔗 Live Demo:
-https://cdl9.github.io/my-vite-app/
+https://cdl9.github.io/weatherApp/
 
 📌 Features
 
@@ -61,10 +61,10 @@ Other
 If you'd like to run this project locally:
 
 # Clone the repository
-git clone https://github.com/cdl9/my-vite-app.git
+git clone https://github.com/cdl9/weatherApp.git
 
 # Navigate into the project folder
-cd my-vite-app
+cd weatherApp
 
 # Install dependencies
 npm install
