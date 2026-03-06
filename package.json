@@ -1,9 +1,9 @@
 {
-  "name": "my-vite-app",
+  "name": "weatherApp",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://cdl9.github.io/my-vite-app",
+  "homepage": "https://cdl9.github.io/weatherApp",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
