@@ -21,8 +21,8 @@ function ForecastDay({ label,item, unit, onClick }) {
                   <div  style={{margin:"12px 15px", display:"flex", alignItems:"center"}}>
                   <WeatherIcon code={item.weather[0].icon} size={35} isHovered={isHovered}/>
                   </div>
-                  <p><FontAwesomeIcon icon="temperature-half" /> {Math.round(item.main.temp)}°{unit === 'metric' ? 'C' : 'F'}</p>
-                  <p className="date-forecast"> {format(parseISO(label), "d MMM, EEE")}</p>
+                  <p className='light-bold-label'><FontAwesomeIcon icon="temperature-half" /> {Math.round(item.main.temp)}°{unit === 'metric' ? 'C' : 'F'}</p>
+                  <p className="date-forecast label-faded"> {format(parseISO(label), "d MMM, EEE")}</p>
 
                   {/*<p><FontAwesomeIcon icon="droplet" /> Humidity: {item.main.humidity}%</p>
                   <p><FontAwesomeIcon icon="wind" /> Wind: <span className="numberValue">{item.wind.speed} {unit === 'metric' ? 'm/s' : 'mph'}</span></p>

@@ -1,12 +1,91 @@
-# React + Vite
+🌦 Weather Dashboard Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive weather dashboard that allows users to search for cities and view real-time weather conditions, hourly forecasts, and interactive weather map layers.
+The application integrates live weather data, dynamic charts, and an interactive map to create a modern and responsive user experience.
 
-Currently, two official plugins are available:
+🔗 Live Demo:
+https://cdl9.github.io/my-vite-app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📌 Features
 
-## Expanding the ESLint configuration
+🌍 City Search – Search for any city and instantly retrieve current weather data
+🗺 Interactive Map – Display city location using an interactive map powered by React Leaflet
+☁ Weather Layers – Toggle map overlays for:
+	Clouds
+	Temperature
+	Wind
+📊 Dynamic Charts – View hourly forecasts including:
+	Temperature
+	Wind Speed
+	Humidity
+	Rain
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+💾 Saved Cities – Persist saved cities using LocalStorage
+📍 Map Marker Popup – Automatically opens when a new city is selected
+✨ Animated UI Feedback – Smooth scroll-to-top and glow animation when switching cities
+🌗 Dark Mode Support
+📱 Responsive Design – Optimized for desktop and mobile devices
+
+🛠 Technologies Used
+
+Frontend
+- React (Functional Components & Hooks)
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+
+Libraries
+
+- React Leaflet
+- Leaflet.js
+- Recharts (Data Visualization)
+- APIs
+- OpenWeather API (Current Weather + Forecast + Map Tiles)
+Other
+- LocalStorage API
+- Responsive CSS Media Queries
+
+🧠 Technical Highlights
+
+- Managed asynchronous API calls with loading and error handling
+- Built dynamic chart switching between temperature, wind, humidity, and rain
+- Customized Recharts tooltips and gradient area charts
+- Implemented interactive map layers using Leaflet LayersControl
+- Used React refs to control map markers and auto-open popups
+- Applied CSS filters and styling adjustments to map tile layers
+- Optimized state updates to prevent unnecessary re-renders
+- Designed mobile-first responsive layouts
+
+🚀 Installation
+
+If you'd like to run this project locally:
+
+# Clone the repository
+git clone https://github.com/cdl9/my-vite-app.git
+
+# Navigate into the project folder
+cd my-vite-app
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+
+
+🎯 Future Improvements
+
+- Add 5–7 day forecast visualization
+- Allow removing saved cities
+- Add geolocation support to detect user's current city
+- Improve performance and caching of API responses
+
+📚 What I Learned
+
+- Through building this project, I strengthened my skills in:
+- React component architecture
+- API integration and async data handling
+- Data visualization with charts
+- Interactive maps with Leaflet
+- Managing complex UI state
+- Creating responsive and polished user interfaces

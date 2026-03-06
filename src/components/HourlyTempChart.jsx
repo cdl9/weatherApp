@@ -71,7 +71,11 @@ const HourlyTempChart = ({ hourlyData, selectedChart, unit }) => {
             }}
             padding={{ top: 20 }}
           />
-           <Tooltip content={<CustomTooltip chartType={selectedChart} unit={unit} />} cursor={{ fill: 'transparent' }}/>
+           <Tooltip content={<CustomTooltip chartType={selectedChart} unit={unit} />} 
+              cursor={{ fill: 'transparent' }}
+              wrapperStyle={{ transition: 'all 0.1s ease-out' }}
+              position={{ y: 10 }}
+           />
            <defs>
             <linearGradient id="rainGradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor={color} stopOpacity={0.9}/>
@@ -99,7 +103,10 @@ const HourlyTempChart = ({ hourlyData, selectedChart, unit }) => {
             }}
             padding={{ top: 20}}
           />
-           <Tooltip content={<CustomTooltip chartType={selectedChart} unit={unit} />} />
+           <Tooltip content={<CustomTooltip chartType={selectedChart} unit={unit} />} 
+              wrapperStyle={{ transition: 'all 0.5s ease-out' }}
+              position={{ y: 20}}
+           />
           <defs>
             <linearGradient id="tempGradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor={color} stopOpacity={0.8}/>

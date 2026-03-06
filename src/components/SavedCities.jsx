@@ -50,12 +50,12 @@ function SavedCities({savedCities, setSavedCities, unit, onSelectCity, triggerTo
                             </button>
                         </div>
                         <div className='flex-column'>
-                            <p style={{margin:'0px'}}>{city.cityLabel.split(',')[0]}</p>
+                            <p className="light-bold-label" style={{margin:'0px'}}>{city.cityLabel.split(',')[0]}</p>
                             <p style={{margin:'0px'}}>{city.cityLabel.split(',')[1]}</p>
                             <div className="small-animated-icon">
                                 <WeatherIcon code={city.icon} size={50} />
                             </div>
-                            <p style={{marginTop:'10px'}}>
+                            <p className="light-bold-label" style={{marginTop:'10px'}}>
                                 <FontAwesomeIcon icon="temperature-half" />
                                 {Math.round(city.temp)}°{unit === 'metric' ? 'C' : 'F'}
                             </p>

@@ -12,11 +12,11 @@ function ForecastHour({ item, unit, onClick}) {
   if (!item) return null;
   return (
               <div key={item.dt} className="hourly-item" onClick={onClick} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-                <p>{item.localHour}</p>
+                <p className='label-faded'>{item.localHour}</p>
                 <div className='animated-icon'>
                   <WeatherIcon code={item.weather[0].icon} size={50} isHovered={isHovered}/>
                 </div>
-                <p>{Math.round(item.main.temp)}°{unit === 'metric' ? 'C' : 'F'}</p>
+                <p className='light-bold-label' style={{fontSize:'18px'}}>{Math.round(item.main.temp)}°{unit === 'metric' ? 'C' : 'F'}</p>
               </div>
   );
 }

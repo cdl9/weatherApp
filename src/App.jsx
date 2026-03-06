@@ -63,6 +63,13 @@ function App() {
 
   const [toastMessage, setToastMessage] = useState('');
   const [showToast, setShowToast] = useState(false);
+  const [glow, setGlow] = useState(false);
+
+  const triggerGlow = () => {
+    setGlow(true);
+    setTimeout(() => setGlow(false), 4000); // matches the animation duration
+  };
+
 
   const triggerToast = (message) => {
     setToastMessage(message);
@@ -206,6 +213,7 @@ function App() {
             setSavedCities={setSavedCities}
             onStatClick={(metric)=>setTriggerStat(metric)}
             triggerToast={triggerToast}
+            glow={glow}
           />
         )}
         </FadeInSection>
@@ -224,7 +232,10 @@ function App() {
         {<SavedCities savedCities={savedCities} setSavedCities={setSavedCities} unit={unit} 
             onSelectCity={(cityObj) =>{
               fetchWeather({ lat: cityObj.lat, lon: cityObj.lon }) ,
-              setCityLabel(cityObj.cityLabel)}
+              setCityLabel(cityObj.cityLabel),
+              window.scrollTo({ top: 0, behavior: 'smooth' }),
+              triggerGlow();
+            }
             }
             triggerToast={triggerToast}
         />}

@@ -18,7 +18,7 @@ const defaults = {
 };
 
 
-const WeatherCard = ({ weather, unit, cityLabel, savedCities, setSavedCities, onStatClick, triggerToast }) => {
+const WeatherCard = ({ weather, unit, cityLabel, savedCities, setSavedCities, onStatClick, triggerToast, glow }) => {
   const [localTime, setLocalTime] = useState('');
   const [localDate, setLocalDate] = useState('');
 
@@ -87,7 +87,7 @@ const WeatherCard = ({ weather, unit, cityLabel, savedCities, setSavedCities, on
   const sunsetTime = formatTime(weather.sys.sunset);
   return (
     <div className="weather-card background-card">
-      <div className='small-card weather-main-card'>
+      <div className={`small-card weather-main-card ${glow ? 'weather-card-glow' : ''}`}>
         <button className='bookmark-button' style={{justifySelf:'flex-end',marginTop:'10px'}}
           onClick={toggleFavorite}
         >
@@ -95,30 +95,31 @@ const WeatherCard = ({ weather, unit, cityLabel, savedCities, setSavedCities, on
         </button>
         <div className='flex-row' style={{backgroundColor:'transparent'}}>
           <div className="weather-header">
-            <h2>{cityLabel}</h2>
-            <p>{localDate}</p>
-            <p>Local Time: {localTime}</p>
+            <h2 style={{marginBottom:'0px'}}>{cityLabel}</h2>
+            <p style={{marginBottom:'15px'}}>{localDate}</p>
+            <p className='light-bold-label'>{localTime}</p>
+            <p className='label-faded'>Local Time</p>
             <div className='animated-icon'>
               <WeatherIcon code={weather.weather[0].icon}  size={60}/>
             </div>
-            <p>{weather.weather[0].main} - {weather.weather[0].description}</p>
+            <p className='label-faded'>{weather.weather[0].main} - {weather.weather[0].description}</p>
           </div>
 
           <div className="temperature-details"> 
             <p className={`temperatureBig temp-value ${fade}`}>{weather.main.temp}°{unit === 'metric' ? 'C' : 'F'}</p>
-            <p><FontAwesomeIcon icon="temperature-half" /> Feels like {weather.main.feels_like}°{unit === 'metric' ? 'C' : 'F'}</p>
+            <p className='label-faded'><FontAwesomeIcon icon="temperature-half" /> Feels like {weather.main.feels_like}°{unit === 'metric' ? 'C' : 'F'}</p>
             <div className="feature-details">
-              <FontAwesomeIcon icon="sun" className="mediumIcon"/>
+              <FontAwesomeIcon icon="sun" className="mediumIcon icon-faded"/>
               <div className="feature-text">
-                <p> Sunrise</p>
-                <p>{sunriseTime}</p>
+                <p className='label-faded'> Sunrise</p>
+                <p className='light-bold-label'>{sunriseTime}</p>
               </div>
           </div>
           <div className="feature-details">
-              <FontAwesomeIcon icon="moon" className="mediumIcon"/>
+              <FontAwesomeIcon icon="moon" className="mediumIcon icon-faded"/>
               <div className="feature-text">
-                <p> Sunset</p>
-                <p>{sunsetTime}</p>
+                <p className='label-faded'> Sunset</p>
+                <p className='light-bold-label'>{sunsetTime}</p>
               </div>
           </div>
           
@@ -130,32 +131,39 @@ const WeatherCard = ({ weather, unit, cityLabel, savedCities, setSavedCities, on
 
 
       <div className="extra-details">
-        <div className="feature-text full-width small-card"
+        <div className="feature-text full-width small-card attribute-card"
           onClick={() => onStatClick('humidity')}
         > 
-            <div className='center-parent-flex'>
-              <FontAwesomeIcon icon="droplet"/> 
-              <p style={{ margin:'0.5rem'}}>Humidity</p>
-            </div>
-            <p>{weather.main.humidity}%</p>
+          <div className="feature-details" style={{marginTop:'0',marginLeft:'-10px'}}>
+              <FontAwesomeIcon icon="droplet" className="mediumIcon icon-faded"/> 
+              <div className="feature-text" style={{marginTop:'0',marginLeft:'-10px'}}>
+                <p >Humidity</p>
+                <p className='light-bold-label'style={{fontSize:'18px'}}>{weather.main.humidity}%</p>
+              </div>
+          </div>    
         </div>
-        <div className="feature-text full-width small-card"
+
+        <div className="feature-text full-width small-card attribute-card"
           onClick={() => onStatClick('wind')}
         > 
-            <div className='center-parent-flex'>
-              <FontAwesomeIcon icon="wind"/> 
-              <p style={{ margin:'0.5rem'}}>Wind</p>
-            </div>
-            <p> {weather.wind.speed}{unit === 'metric' ? 'm/s' : 'mph'}</p>
+          <div className="feature-details" style={{marginTop:'0',marginLeft:'-10px'}}>
+              <FontAwesomeIcon icon="wind" className="mediumIcon icon-faded"/> 
+              <div className="feature-text" style={{marginTop:'0',marginLeft:'-10px'}}>
+                <p >Wind</p>
+                <p className='light-bold-label'style={{fontSize:'18px'}}>{weather.wind.speed}{unit === 'metric' ? 'm/s' : 'mph'}</p>
+              </div>
+          </div>    
         </div>
-        <div className="feature-text full-width small-card"
+        <div className="feature-text full-width small-card attribute-card"
           onClick={() => onStatClick('rain')}
         >
-            <div className='center-parent-flex'>
-              <FontAwesomeIcon icon="tachometer-alt"/> 
-              <p style={{ margin:'0.5rem'}}>Pressure</p>
-            </div>
-            <p> {weather.main.pressure}Pa</p>
+          <div className="feature-details" style={{marginTop:'0',marginLeft:'-10px'}}>
+              <FontAwesomeIcon icon="tachometer-alt" className="mediumIcon icon-faded"/> 
+              <div className="feature-text" style={{marginTop:'0',marginLeft:'-10px'}}>
+                <p >Pressure</p>
+                <p className='light-bold-label'style={{fontSize:'18px'}}>{weather.main.pressure}Pa</p>
+              </div>
+          </div>    
         </div>
 
       </div>
